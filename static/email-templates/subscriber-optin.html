@@ -1,0 +1,165 @@
+{{ define "subscriber-optin" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Subscription to Prateek's Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            color: #333;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        .icon {
+            font-size: 48px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        .subtitle a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .subtitle a:hover {
+            text-decoration: underline;
+        }
+        
+        .email-display {
+            background: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-display strong {
+            color: #333;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .confirm-btn {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 400;
+            font-size: 16px;
+            transition: background-color 0.2s ease;
+            margin-bottom: 30px;
+        }
+        
+        .confirm-btn:hover {
+            background: #0056b3;
+        }
+        
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .footer {
+            border-top: 1px solid #eee;
+            padding-top: 25px;
+            margin-top: 25px;
+        }
+        
+        .footer-text {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .unsubscribe-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .unsubscribe-link:hover {
+            color: #333;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .confirm-btn {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">✉️</div>
+        <h1>Almost There!</h1>
+        <p class="subtitle">
+          This is a confirmation email to verify your subscription to <a href="https://prateeksurana.me/blog/">Prateek's Blog</a>.
+        </p>
+        <div class="email-display">
+            <strong>📧 {{ .Subscriber.Email }}</strong>
+        </div>
+        <a href="{{ .OptinURL }}" class="confirm-btn">Confirm Subscription</a>
+        <div class="footer">
+            <p class="footer-text">
+                Didn't request this? No worries, just ignore this email.
+            </p>
+            <a href="{{ .UnsubURL }}?manage=true" class="unsubscribe-link">Unsubscribe from all emails</a>
+        </div>
+    </div>
+</body>
+</html>
+{{ end }}
